@@ -1,5 +1,9 @@
 <script type="text/template" id="pokemon-list-item-template">
+  <li class="poke-list-item" data-id="<%%= pokemon.id %>">
+    <%%= pokemon.escape("name") + " –– " + pokemon.escape("poke_type") %>
+  </li>
 </script>
+
 
 <script type="text/template" id="pokemon-detail-template">
   <section class="detail">
@@ -12,11 +16,21 @@
       <%% } %>
     <%% }) %>
 
-
   </section>
+
+  <span style="font-weight: bold;">Toys:</span><br>
+  <ul class="toys"></ul>
 </script>
 
+
 <script type="text/template" id="toy-list-item-template">
+  <li class="toy-list-item"
+    data-id="<%%= toy.id %>"
+    data-pokemon-id="<%%= toy.escape("pokemon_id") %>">
+    <%%= toy.escape("name") %><br>
+    <%%= toy.escape("happiness") %><br>
+    <%%= toy.escape("price") %><br>
+  </li>
 </script>
 
 <script type="text/template" id="toy-detail-template">
