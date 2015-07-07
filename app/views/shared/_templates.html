@@ -2,6 +2,18 @@
 </script>
 
 <script type="text/template" id="pokemon-detail-template">
+  <section class="detail">
+
+    <img src="<%%= pokemon.escape('image_url') %>" alt="pokemon" />
+
+    <%% _.each(pokemon.attributes, function (value, key, list) { %>
+      <%% if (key !== "id" && key !== "image_url"){ %>
+        <detail><%%= key + ": " + value %></detail>
+      <%% } %>
+    <%% }) %>
+
+
+  </section>
 </script>
 
 <script type="text/template" id="toy-list-item-template">
@@ -12,3 +24,15 @@
 
 <script type="text/template" id="pokemon-form-template">
 </script>
+
+
+<!-- create_table "pokemons", force: true do |t|
+  t.string   "name",       null: false
+  t.integer  "attack",     null: false
+  t.integer  "defense",    null: false
+  t.string   "poke_type",  null: false
+  t.string   "moves",                   array: true
+  t.string   "image_url",  null: false
+  t.datetime "created_at"
+  t.datetime "updated_at"
+end -->
